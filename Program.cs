@@ -1,4 +1,4 @@
-﻿Console.WriteLine("Введите номер задачи от 1 до 4 включительно ");
+﻿Console.WriteLine("Введите номер задачи от 1 до 5 включительно ");
 Console.WriteLine("Если вы хотите завершить выполнение программы, то отправте значение 0 ");
 
 int caseNumber = int.Parse(Console.ReadLine());
@@ -85,6 +85,33 @@ while ( caseNumber != 0 ){
         Console.WriteLine("");
             break;
         case 4:
+        /*Создать программу, которая из массива удаляется элемент с позиции, которую введет пользователь.
+        */
+
+        int[] mass  = { 5, 4, 7, 2, 9 };
+        Console.WriteLine($" Дан масив{String.Join(", ", mass)}, введите номер элемента, который необходимо удалить.Размер масива {mass.Length} ");
+        int index = int.Parse(Console.ReadLine());
+
+ 
+        for (int i = index; i < mass.Length - 1; i++)    {
+            mass[i] = mass[i + 1];
+        }
+        Array.Resize(ref mass, mass.Length - 1);
+ 
+        Console.WriteLine(String.Join(", ", mass));
+
+        break;
+
+        case 5:
+        /*Создание массива из двух массивов. В итоговом массиве должны быть элементы первого и второго массива.
+        [1,2,3] [4,5,6] -> [1,2,3,4,5,6]
+        */
+
+        int[] a = {1, 2, 3};
+        int[] b = {4, 5, 6};
+        int[] c = a.Union(b).ToArray();
+        Console.WriteLine(String.Join(", ", c));
+
             break;
         default:
             Console.WriteLine("Неверный ввод числа.");
